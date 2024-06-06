@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Manager Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <h1>The Events</h1>
+    <div class="container">
+        <div class="add-box">
+            <h2>Add Event</h2>
+            <div class="input-container">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="text" class="event-name" placeholder="Event Name">
+            </div>
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" class="organizer-name" placeholder="Event Organizer">
+            </div>
+            <div class="input-container">
+                <i class="fas fa-calendar"></i>
+                <input type="date" class="event-date">
+            </div>
+            <button class="add" onclick="addEvent()">Add Event</button>
+        </div>
+        <div class="events"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
