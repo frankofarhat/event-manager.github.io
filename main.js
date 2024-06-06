@@ -2,15 +2,17 @@ function setMinDate() {
     const today = new Date().toISOString().split("T")[0];
     const eventDate = document.querySelector(".event-date");
     eventDate.setAttribute("min", today);
-
-    eventDate.addEventListener("input", function() {
-        if (eventDate.value < today) {
-            eventDate.value = today;
-        }
-    });
 }
-setMinDate();
 
+function validateDate() {
+    const today = new Date().toISOString().split("T")[0];
+    const eventDate = document.querySelector(".event-date");
+    if (eventDate.value < today) {
+        eventDate.value = today;
+    }
+}
+
+setMinDate();
 
 function addEvent() {
     const eventName = document.querySelector(".event-name").value;
@@ -58,9 +60,9 @@ function displayEvents() {
 
         eventElement.innerHTML = `
             <h3>${event.name}</h3>
-            <p>Organized by:${event.organizer}</p>
+            <p>Organized by: ${event.organizer}</p>
             <p>Date: ${event.date}</p>
-            <p>Time Remaining:${timeRemaining}</p>
+            <p>Time Remaining: ${timeRemaining}</p>
             <button class="delete" onclick="deleteEvent(${index})">Delete</button>
         `;
         eventsContainer.appendChild(eventElement);
@@ -80,7 +82,7 @@ function calculateTimeRemaining(timeStamp) {
 }
 
 function deleteEvent(index) {
-    let events = JSON.parse(localStorage.getItem("events"));
+    let events = JSON.parse(localStorage.getItem("events")) || [];
     events.splice(index, 1);
     localStorage.setItem("events", JSON.stringify(events));
     displayEvents();
